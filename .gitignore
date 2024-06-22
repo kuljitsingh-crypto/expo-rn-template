@@ -35,7 +35,9 @@ yarn-error.*
 .env.testing
 .env.development
 
-android/
 
 # typescript
 *.tsbuildinfo
+
+android/
+ios/

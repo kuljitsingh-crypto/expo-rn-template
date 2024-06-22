@@ -1,2 +1,5 @@
 export { FormatedMessage as FormatedMessage } from "./translation";
 export { default as Icon } from "./Icon";
+export { default as ErrorView } from "./ErrorView";
+export { InlineTextButton, SecondaryButton, PrimaryButton } from "./Button";
+export { default as AuthenticatedChildren } from "./AuthenticatedChildren";

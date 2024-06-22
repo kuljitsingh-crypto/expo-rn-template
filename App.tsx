@@ -1,39 +1,33 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import React from "react";
+import AppNavigator from "./AppNavigator";
+import { createStore } from "./store";
+import { Provider } from "react-redux";
+import { SimpleToastProvider } from "./src/SimpleToast";
+import { SafeAreaView } from "react-native";
+import { colors } from "./src/utill";
+import { useDeepLink } from "./src/deepLink";
 import "./src/utill/i18n/i18n.config";
-import { useFontLoader, useIntl } from "./src/hooks";
-import { FormatedMessage, Icon } from "./src/components";
-import { normalFont } from "./src/styles/appDefaultStyle";
-import { parse } from "./src/utill";
 
-export default function App() {
-  const intl = useIntl();
+const DeepLinkWrapper = ({ children }: { children: React.JSX.Element }) => {
+  useDeepLink();
+  return <SafeAreaView style={{ flex: 1 }}>{children}</SafeAreaView>;
+};
 
-  // // use this only when using Expo Go
-  // const { fontLoaded } = useFontLoader();
-  // if (!fontLoaded) return null;
-
+const App = () => {
+  const store = createStore();
+  const { dispatch } = store;
   return (
-    <View style={styles.container}>
-      <Text style={normalFont}>
-        {intl.formatMessage("Home.greeting", { name: "kuljit" })}
-      </Text>
-      <FormatedMessage
-        id='Home.greeting'
-        values={{ name: "singh" }}
-        style={normalFont}
-      />
-      <Icon iconType='ant' name='stepforward' size={24} color='black' />
-      <StatusBar style='auto' />
-    </View>
+    <Provider store={store}>
+      <DeepLinkWrapper>
+        <SimpleToastProvider
+          infoColor={colors.infoToast}
+          successColor={colors.successToast}
+          errorColor={colors.errorToast}>
+          <AppNavigator dispatch={dispatch} />
+        </SimpleToastProvider>
+      </DeepLinkWrapper>
+    </Provider>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
+export default App;
