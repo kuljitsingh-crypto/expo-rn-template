@@ -1,0 +1,9 @@
+{"Home.greeting":"Hello,{{name}}!",
+"Home.goToProfile":"Go to Profile",
+"Splash.title":"Splash",
+"AuthenticatedChildren.loginText":"Log In",
+"AuthenticatedChildren.title":"Authenticated User Require",
+"AuthenticatedChildren.desc":"You can this feature once you've logged in.",
+"InvalidGoogleLoginId":"To Enable Google Sign in . Add EXPO_PUBLIC_GOOGLE_APP_CLIENT_ID in your .env and build your app once again.",
+"InvalidFacebookLoginId":"To Enable Facebook Sign in. Add EXPO_PUBLIC_FACEBOOK_CLIENT_ID in your .env , and build your app once again."
+}

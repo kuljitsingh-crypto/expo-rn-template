@@ -6,7 +6,7 @@ import { SimpleToastProvider } from "./src/SimpleToast";
 import { SafeAreaView } from "react-native";
 import { colors } from "./src/utill";
 import { useDeepLink } from "./src/deepLink";
-import "./src/utill/i18n/i18n.config";
+import "./src/i18n/i18n.config";
 
 const DeepLinkWrapper = ({ children }: { children: React.JSX.Element }) => {
   useDeepLink();
