@@ -101,7 +101,7 @@ Choose from `Task:app`
 
 For `production` to get sha-1 go to your `Play Store Console` to obtain the SHA-1 certificate fingerprint from `Release` > `Setup` > `App Integrity` > `App signing key certificate.`
 
- * Then, convert the value of the [Hex value of the certificate to Base64] (https://base64.guru/converter/encode/hex) and add it under the `Android` > `Key hashes` in your Facebook project.
+ * Then, convert the value of the [Hex value of the certificate to Base64](https://base64.guru/converter/encode/hex) and add it under the `Android` > `Key hashes` in your Facebook project.
 
 * You can find the Package name in your `app config` under the `android.package field`.
 The Class name is `MainActivity` by default, and you can use `package.MainActivity` where package is the android.package in your project's app config. For example, `com.myapp.example.MainActivity`, where `com.myapp.example` is the package name of your app.
