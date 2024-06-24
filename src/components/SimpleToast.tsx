@@ -1,8 +1,9 @@
 import { StyleSheet, Text, View } from "react-native";
 import React, { useContext, useEffect, useState } from "react";
-import { Icon, InlineTextButton } from "./components";
-import { container, headerText, normalFont } from "./styles/appDefaultStyle";
-import { colors } from "./utill";
+import { container, headerText, normalFont } from "../styles/appDefaultStyle";
+import { colors } from "../utill";
+import { InlineTextButton } from "./Button";
+import Icon from "./Icon";
 
 export const ToastType = {
   info: "info",

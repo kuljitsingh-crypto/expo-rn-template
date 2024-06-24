@@ -10,7 +10,7 @@ import {
 } from "../utill";
 import { normalFont } from "../styles/appDefaultStyle";
 import Icon from "./Icon";
-import { useToast } from "../SimpleToast";
+import { useToast } from "./SimpleToast";
 import { FormatedMessage } from "./translation";
 
 type FacebookSignInProps = {

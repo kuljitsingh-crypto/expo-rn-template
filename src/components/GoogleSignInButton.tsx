@@ -10,7 +10,7 @@ import {
   GoogleSignInError,
 } from "../utill";
 import { normalFont } from "../styles/appDefaultStyle";
-import { useToast } from "../SimpleToast";
+import { useToast } from "./SimpleToast";
 import { FormatedMessage } from "./translation";
 
 const defaultLoginError = {
