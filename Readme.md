@@ -13,6 +13,9 @@ To use `Google Login` and `Facebook Login`, you have to prebuild `Expo App`. It 
 
 ### Google Login
 
+**Note**: You also need to create a environment variable with name `EXPO_PUBLIC_GOOGLE_APP_CLIENT_ID` which will be `webClientId`
+
+
 You have to first create `OAuth 2.0 Client ID` for Web type without adding any redirect uri
 
 #### Android
@@ -21,7 +24,8 @@ You need to create a `OAuth 2.0 Client ID` with android  type
 
 For `development` to  get sha-1
 ```bash
-cd android/ && ./gradlew signingReport
+cd android
+./gradlew signingReport
 ```
 Choose from `Task:app`
 
@@ -47,6 +51,8 @@ To obtain iosUrlScheme, go to the `Google Cloud Console` and copy the "`iOS URL 
 ```
 
 ### Facebook Login
+
+**Note**: You also need to create a environment variable with name `EXPO_PUBLIC_FACEBOOK_CLIENT_ID` which will be `appID`
 
 After installing `react-native-fbsdk-next` npm package, add the config plugin to the plugins array of your `app.json `or `app.config.js`:
 
