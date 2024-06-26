@@ -9,7 +9,7 @@ type HomeProps = ScreenNavigation<"home">;
 const Home = (props: HomeProps) => {
   const { navigation } = props;
   const goToProfile = () => {
-    navigation.navigate(screenNames.profile);
+    navigation.navigate(screenNames.profile, { username: "abc" });
   };
   return (
     <View style={container}>

@@ -15,13 +15,11 @@ export const screenConfigurations = (): ScreenConfigurations[] => {
     {
       name: screenNames.splash,
       component: Splash,
-      options: { headerShown: false },
       isSplashScreen: true,
     },
     {
       name: screenNames.home,
       component: Home,
-      options: { headerShown: false },
     },
     {
       name: screenNames.profile,
@@ -32,7 +30,6 @@ export const screenConfigurations = (): ScreenConfigurations[] => {
     {
       name: screenNames.login,
       component: Login,
-      options: { headerShown: false },
     },
   ];
 };

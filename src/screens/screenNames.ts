@@ -7,18 +7,34 @@ export const screenNames = {
   login: "login",
 } as const;
 
+// add params for specific screen or leave blank object
+type SpecificScreenParamList = {
+  [screenNames.profile]: { username: string };
+};
+
+type BaseScreenParamList = Record<
+  (typeof screenNames)[keyof typeof screenNames],
+  undefined
+>;
+
+export type ScreenParamList = Omit<
+  BaseScreenParamList,
+  keyof SpecificScreenParamList
+> &
+  SpecificScreenParamList;
+
+type ScreenParamKey = keyof ScreenParamList;
+
 export const screenValuesSet = new Set(Object.values(screenNames));
 
 export type ScreenValue = (typeof screenNames)[keyof typeof screenNames];
 
-export type ScreenParamList = {
-  [screenNames.splash]: undefined;
-  [screenNames.home]: undefined;
-  [screenNames.profile]: undefined;
-  [screenNames.login]: undefined;
-};
+export type ScreenParamType = ScreenParamList[ScreenParamKey];
 
-export type ScreenParamType = ScreenParamList[keyof ScreenParamList];
+export type ScreenRouteType<Tname extends ScreenParamKey> =
+  undefined extends ScreenParamList[Tname]
+    ? { name: Tname; params?: ScreenParamList[Tname] }
+    : { name: Tname; params: ScreenParamList[Tname] };
 
 export type ScreenConfiguration<
   TName extends ScreenValue,
