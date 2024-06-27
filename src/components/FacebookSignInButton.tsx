@@ -5,13 +5,13 @@ import {
   FacebookLoginAccesToken,
   FacebookLoginError,
   FacebookSignInError,
-  colors,
   facebookLogin,
 } from "../utill";
 import { normalFont } from "../styles/appDefaultStyle";
 import Icon from "./Icon";
 import { useToast } from "./SimpleToast";
 import { FormatedMessage } from "./translation";
+import { colors } from "../constants";
 
 type FacebookSignInProps = {
   loginText: string;

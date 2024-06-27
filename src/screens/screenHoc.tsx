@@ -6,6 +6,7 @@ import { FETCH_STATUS } from "../custom-config";
 import {
   ScreenConfiguration,
   ScreenParamList,
+  ScreenRouteType,
   ScreenValue,
   screenNames,
   screenValuesSet,
@@ -34,10 +35,6 @@ const useRedirect = <TName extends ScreenValue>(
   screen: ScreenConfiguration<TName> & {
     navigationProps: ScreenProps<TName>;
     dispatch: AppDispatchType;
-    splashRedirectOption?: {
-      path: any;
-      params?: any;
-    };
   }
 ) => {
   const {
@@ -47,7 +44,8 @@ const useRedirect = <TName extends ScreenValue>(
     dispatch,
     name,
   } = screen;
-  const { params, path = DEFAULT_REDIRECT_PATH } = splashRedirectOption || {};
+  const { params, name: path = DEFAULT_REDIRECT_PATH } =
+    splashRedirectOption || {};
   const {
     deepLinkStatus,
     shouldRedirectAfterDeepLink,
@@ -168,7 +166,6 @@ export function screenHoc<
       redirectOnUnauthorized,
     } = screenConfigurations;
     const navigationProps = props;
-    const { path, params } = unAuthRedirectOption || {};
 
     useRedirect<typeof name>({
       ...screenConfigurations,
@@ -181,7 +178,7 @@ export function screenHoc<
     return auth ? (
       <AuthenticatedChildren
         redirectOnUnauthorized={!!redirectOnUnauthorized}
-        redirectTo={path || screenNames.login}>
+        redirectOptions={unAuthRedirectOption}>
         <Comp {...navigationProps} />
       </AuthenticatedChildren>
     ) : (

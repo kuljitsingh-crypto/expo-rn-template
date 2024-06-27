@@ -4,11 +4,9 @@ import Profile from "./Profile/Profile";
 import Login from "./Login/Login";
 import { ScreenConfiguration, screenNames } from "./screenNames";
 
-type ScreenConfigurations =
-  | ScreenConfiguration<"splash">
-  | ScreenConfiguration<"home">
-  | ScreenConfiguration<"profile">
-  | ScreenConfiguration<"login">;
+type ScreenConfigurations = {
+  [K in keyof typeof screenNames]: ScreenConfiguration<(typeof screenNames)[K]>;
+}[keyof typeof screenNames];
 
 export const screenConfigurations = (): ScreenConfigurations[] => {
   return [

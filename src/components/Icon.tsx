@@ -17,7 +17,7 @@ import {
   Zocial,
 } from "@expo/vector-icons";
 import type { PropsWithChildren } from "react";
-import { colors } from "../utill";
+import { colors } from "../constants";
 
 const iconTypes = {
   ant: "ant",

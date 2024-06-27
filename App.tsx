@@ -4,7 +4,7 @@ import { createStore } from "./store";
 import { Provider } from "react-redux";
 import { SimpleToastProvider } from "./src/components/SimpleToast";
 import { SafeAreaView } from "react-native";
-import { colors } from "./src/utill";
+import { colors } from "./src/constants";
 import { useDeepLink } from "./src/deepLink";
 import "./src/i18n/i18n.config";
 

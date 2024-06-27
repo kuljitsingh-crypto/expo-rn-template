@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from "react-native";
 import React, { useContext, useEffect, useState } from "react";
 import { container, headerText, normalFont } from "../styles/appDefaultStyle";
-import { colors } from "../utill";
+import { colors } from "../constants";
 import { InlineTextButton } from "./Button";
 import Icon from "./Icon";
 

@@ -1,17 +1,17 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { normalFont } from "../styles/appDefaultStyle";
-import { colors } from "../utill";
-import { ScreenParamList, ScreenValue } from "../screens/screenNames";
+import { colors } from "../constants";
+import {
+  ScreenParamKey,
+  ScreenParamList,
+  ScreenRouteType,
+  ScreenValue,
+} from "../screens/screenNames";
 import { useScreenNavigation } from "../hooks";
 import { InlineTextButton } from "./Button";
 
-type RouteName = keyof ScreenParamList;
-
-type RouteProps<Tname extends RouteName> =
-  undefined extends ScreenParamList[Tname]
-    ? { name: Tname; params?: ScreenParamList[Tname] }
-    : { name: Tname; params: ScreenParamList[Tname] };
+type RouteProps<Tname extends ScreenParamKey> = ScreenRouteType<Tname>;
 
 type OtherProps = {
   replace?: boolean;
@@ -20,8 +20,11 @@ type OtherProps = {
   children: string | React.JSX.Element;
 };
 
-type NamedLinkProps<Tname extends RouteName> = OtherProps & RouteProps<Tname>;
-const NamedLink = <Tname extends RouteName>(props: NamedLinkProps<Tname>) => {
+type NamedLinkProps<Tname extends ScreenParamKey> = OtherProps &
+  RouteProps<Tname>;
+const NamedLink = <Tname extends ScreenParamKey>(
+  props: NamedLinkProps<Tname>
+) => {
   const navigation = useScreenNavigation();
   const {
     linkStyle: propsLinkStyle,

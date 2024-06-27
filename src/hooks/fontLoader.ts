@@ -1,5 +1,5 @@
 import { useFonts } from "expo-font";
-import { fonts } from "../utill";
+import { fonts } from "../constants";
 export function useFontLoader() {
   const [loadded, error] = useFonts({
     [fonts.thin]: require("../../assets/fonts/Poppins-Thin.ttf"),

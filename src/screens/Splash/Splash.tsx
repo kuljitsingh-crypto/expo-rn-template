@@ -1,6 +1,6 @@
 import { Image, SafeAreaView, StyleSheet, Text } from "react-native";
 import React from "react";
-import { colors, fonts } from "../../utill";
+import { colors, fonts } from "../../constants";
 import { ScreenNavigation, useIntl } from "../../hooks";
 import { container } from "../../styles/appDefaultStyle";
 

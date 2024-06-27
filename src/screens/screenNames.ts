@@ -23,7 +23,7 @@ export type ScreenParamList = Omit<
 > &
   SpecificScreenParamList;
 
-type ScreenParamKey = keyof ScreenParamList;
+export type ScreenParamKey = keyof ScreenParamList;
 
 export const screenValuesSet = new Set(Object.values(screenNames));
 
@@ -36,23 +36,24 @@ export type ScreenRouteType<Tname extends ScreenParamKey> =
     ? { name: Tname; params?: ScreenParamList[Tname] }
     : { name: Tname; params: ScreenParamList[Tname] };
 
+type AuthOption<Tname extends ScreenParamKey> = {
+  auth?: boolean;
+  redirectOnUnauthorized?: boolean;
+  unAuthRedirectOption?: ScreenRouteType<Tname>;
+};
+
+type SplashOption<Tname extends ScreenParamKey> = {
+  isSplashScreen?: boolean;
+  splashRedirectOption?: ScreenRouteType<Tname>;
+};
+
 export type ScreenConfiguration<
   TName extends ScreenValue,
-  TSplashRedirect extends ScreenValue = ScreenValue,
-  TRedirect extends ScreenValue = ScreenValue
+  TSplashRedirect extends ScreenParamKey = ScreenParamKey,
+  TAuthRedirect extends ScreenParamKey = ScreenParamKey
 > = {
   name: TName;
   component: (props: any) => React.JSX.Element;
   options?: NativeStackNavigationOptions;
-  auth?: boolean;
-  redirectOnUnauthorized?: boolean;
-  unAuthRedirectOption?: {
-    path: TRedirect;
-    params?: ScreenParamList[TRedirect];
-  };
-  isSplashScreen?: boolean;
-  splashRedirectOption?: {
-    path: TSplashRedirect;
-    params?: ScreenParamList[TSplashRedirect];
-  };
-};
+} & AuthOption<TAuthRedirect> &
+  SplashOption<TSplashRedirect>;

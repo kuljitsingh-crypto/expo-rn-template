@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { SecondaryButton } from "./Button";
 import Icon from "./Icon";
 import {
-  colors,
   GoogleLoginError,
   GoogleLoginUser,
   googleLogin,
@@ -12,6 +11,7 @@ import {
 import { normalFont } from "../styles/appDefaultStyle";
 import { useToast } from "./SimpleToast";
 import { FormatedMessage } from "./translation";
+import { colors } from "../constants";
 
 const defaultLoginError = {
   title: "Google Sign-In/Sign-Out Error",
