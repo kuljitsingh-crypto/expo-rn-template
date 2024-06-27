@@ -2,7 +2,7 @@ import React from "react";
 import AppNavigator from "./AppNavigator";
 import { createStore } from "./store";
 import { Provider } from "react-redux";
-import { SimpleToastProvider } from "./src/components/SimpleToast";
+import { SimpleToastProvider } from "./src/components";
 import { SafeAreaView } from "react-native";
 import { colors } from "./src/constants";
 import { useDeepLink } from "./src/deepLink";
