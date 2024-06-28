@@ -6,6 +6,14 @@
  ```bash
  git clone https://github.com/kuljitsingh-crypto/expo-rn-template.git
  ```
+Run Following command in your terminal
+```bash
+yarn install
+```
+or 
+```bash
+npm install
+```
 
 ## Step 2: 
  
@@ -122,15 +130,8 @@ https://docs.expo.dev/versions/latest/config/app/#config
 
 
 ## Step 3
-Run Following command in your terminal
-```bash
-yarn install
-```
-or 
-```bash
-npm install
-```
-and 
+Run on your device using
+
 ```bash
 yarn run android
 ```
